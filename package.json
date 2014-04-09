@@ -1,0 +1,29 @@
+{
+  "name": "loggerjs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/luscus/node-LoggerJS",
+  "author": "https://github.com/luscus/node-LoggerJS/graphs/contributors",
+  "description": "Builds on the client side LoggerJS's skeleton to provide similar logging functionalities for Node.js modules.",
+  "keywords": [
+    "LoggerJS",
+    "logger",
+    "logging"
+  ],
+  "dependencies": {
+    "request" : "2.34.x"
+  },
+  "devDependencies": {
+    "LoggerJS" : "luscus/LoggerJS#v0.0.1",
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.10.x",
+    "grunt-contrib-concat": "0.4.x",
+    "grunt-contrib-clean": "0.5.x",
+    "load-grunt-tasks": "0.4.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:luscus/node-LoggerJS.git"
+  },
+  "main": "./lib/LoggerJS",
+  "bugs": "https://github.com/luscus/node-LoggerJS/issues"
+}
