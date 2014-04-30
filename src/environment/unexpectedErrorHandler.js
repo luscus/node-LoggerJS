@@ -15,6 +15,4 @@ process.on('uncaughtException', function (error) {
   }
 
   console.error(entry.toString());
-
-  process.exit();
 });
