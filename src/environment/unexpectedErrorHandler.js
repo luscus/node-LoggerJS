@@ -5,10 +5,10 @@
 * for unexpected errors.
 */
 process.on('uncaughtException', function (error) {
-  error.message = 'UncaughtException: ' + error.name + ', ' + error.message;
+  error.message = 'UncaughtException: ' + error.message;
   error.name = 'ERROR';
 
-  var entry = new LogEntry(error);
+  var entry = new LogEntry(error, true);
 
   if (logServerEnabled) {
     pushToLogServer(entry);
@@ -17,41 +17,4 @@ process.on('uncaughtException', function (error) {
   console.error(entry.toString());
 
   process.exit();
-});
-
-
-/**
-* Global Kill listener.
-*/
-process.on('SIGINT', function () {
-  var error = new Error('Process KILLED !!!'),
-      entry;
-
-  error.name = 'INFO';
-  entry = new LogEntry(error);
-
-  if (logServerEnabled) {
-    pushToLogServer(entry);
-  }
-
-  console.info(entry.toString());
-
-  process.exit();
-});
-
-/**
-* Global shutdown listener.
-*/
-process.on('exit', function(code) {
-  var error = new Error('Process shuting down...'),
-      entry;
-
-  error.name = 'INFO';
-  entry = new LogEntry(error);
-
-  if (logServerEnabled) {
-    pushToLogServer(entry);
-  }
-
-  console.info(entry.toString());
 });
