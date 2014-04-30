@@ -13,7 +13,7 @@
     "request" : "2.34.x"
   },
   "devDependencies": {
-    "LoggerJS" : "luscus/LoggerJS#v0.0.4",
+    "LoggerJS" : "luscus/LoggerJS#v0.0.5",
     "grunt": "0.4.x",
     "grunt-contrib-jshint": "0.10.x",
     "grunt-contrib-concat": "0.4.x",
