@@ -7,6 +7,20 @@ var LoggerJS = require('../lib/LoggerJS'),
     },
     logger = new LoggerJS.Logger(options);
 
+// Handle unexpected errors
+var options = {
+      name: 'error',
+      status: true,
+      strict: false,
+      logLevel : LoggerJS.ERROR,
+      task: function (logEntry) {
+        console.log('error TASK running...');
+      }
+    },
+    task = new LoggerJS.LogTask(options);
+
+logger.registerLogTask(task);
+
 console.log('LoggerJS', LoggerJS);
 
 for (var idx in logger.log_priority) {
