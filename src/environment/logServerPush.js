@@ -22,7 +22,7 @@ function pushToLogServer (entry) {
 
           console.error(new Date().toISOString()+' - Error while pushing to LogServer: '+ message.message);
           console.error(message.stack);
-          console.error(entry.getLogEntry());
+          console.error(entry.toJson());
         }
       }
     );
