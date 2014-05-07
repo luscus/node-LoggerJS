@@ -11,7 +11,7 @@ function pushToLogServer (entry) {
     requester.post(
       {
         uri: logServerUrl,
-        json: entry.getLogEntry(),
+        json: entry.toJson(),
         headers: {
           'Content-type': 'application/json; charset=utf-8'
         }
