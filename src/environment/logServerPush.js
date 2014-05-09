@@ -8,22 +8,35 @@ var requester = require('request');
 * @param entry a log Object
 */
 function pushToLogServer (entry) {
-    requester.post(
-      {
-        uri: logServerUrl,
-        json: entry.toJson(),
-        headers: {
-          'Content-type': 'application/json; charset=utf-8'
-        }
-      },
-      function(error, req_response, body) {
-        if (error || body.error) {
-          var message = (error) ? error : body.error;
 
-          console.error(new Date().toISOString()+' - Error while pushing to LogServer: '+ message.message);
-          console.error(message.stack);
-          console.error(entry.toJson());
-        }
+  if (!logServerEnabled) {
+    return false;
+  }
+
+  requester.post(
+    {
+      uri: logServerUrl,
+      json: entry.toJson(),
+      headers: {
+        'Content-type': 'application/json; charset=utf-8'
       }
-    );
+    },
+    function(error, req_response, body) {
+      if (error || body.error) {
+        logServerEnabled = false;
+
+
+        if (!error) {
+          error = new Error(body.error);
+        }
+
+        error.message = 'Error while pushing to LogServer '+logServerUrl+': '+ error.message;
+
+        var log = new LogEntry(error);
+
+        console.error(log.toString());
+        triggerLogTaskProcessing(log);
+      }
+    }
+  );
 }

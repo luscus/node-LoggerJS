@@ -8,13 +8,8 @@ process.on('uncaughtException', function (error) {
   error.message = 'UncaughtException: ' + error.message;
   error.name = 'ERROR';
 
-  var entry = new LogEntry(error, true);
-
-  if (logServerEnabled) {
-    pushToLogServer(entry);
-  }
+  var entry = new LogEntry(error);
 
   console.error(entry.toString());
   triggerLogTaskProcessing(entry);
-
 });

@@ -21,11 +21,21 @@ var options = {
 
 logger.registerLogTask(task);
 
-console.log('LoggerJS', LoggerJS);
+logger.useLogfile('./test/test.log');
 
-for (var idx in logger.log_priority) {
-  var method = logger.log_priority[idx];
-  logger[method.toLowerCase()]('ein kleiner "'+method+'" output Test');
+
+
+function runTest () {
+  for (var idx in logger.log_priority) {
+    var method = logger.log_priority[idx];
+    logger[method.toLowerCase()]('ein kleiner "'+method+'" output Test');
+  }
+
+  logger.useLogServer('http://dggfgd');
+
+
+  test.doit();
 }
 
-test.doit();
+
+setInterval(runTest, 1000);

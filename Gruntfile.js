@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     clean: ['docs/', 'lib/'],
     jshint: {
-      all: ['Gruntfile.js', 'src/**/*.js']
+      all: ['Gruntfile.js', 'src/**/*.js', 'lib/**/*.js']
     },
     concat: {
       standard: {
