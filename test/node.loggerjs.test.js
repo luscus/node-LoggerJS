@@ -31,6 +31,8 @@ function runTest () {
     logger[method.toLowerCase()]('ein kleiner "'+method+'" output Test');
   }
 
+  console.info(logger.log('some return value test'));
+
   logger.useLogServer('http://dggfgd');
 
 
