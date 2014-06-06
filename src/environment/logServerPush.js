@@ -22,6 +22,8 @@ function pushToLogServer (entry) {
       }
     },
     function(error, req_response, body) {
+      body = body || {};
+
       if (error || body.error) {
         logServerEnabled = false;
 
