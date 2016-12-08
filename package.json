@@ -10,15 +10,15 @@
         "logging"
     ],
     "dependencies": {
-        "request": "2.34.x"
+        "request": "~2.79.0"
     },
     "devDependencies": {
         "LoggerJS": "luscus/LoggerJS#v0.0.14",
-        "grunt": "0.4.x",
-        "grunt-contrib-jshint": "0.10.x",
-        "grunt-contrib-concat": "0.4.x",
-        "grunt-contrib-clean": "0.5.x",
-        "load-grunt-tasks": "0.4.x"
+        "grunt": "~1.0.1",
+        "grunt-contrib-jshint": "~1.1.0",
+        "grunt-contrib-concat": "~1.0.1",
+        "grunt-contrib-clean": "~1.0.0",
+        "load-grunt-tasks": "~3.5.2"
     },
     "repository": {
         "type": "git",
