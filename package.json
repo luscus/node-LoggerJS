@@ -10,7 +10,7 @@
         "logging"
     ],
     "dependencies": {
-        "request": "2.34.x"
+        "request": "2.81.0"
     },
     "devDependencies": {
         "LoggerJS": "luscus/LoggerJS#v0.0.14",
